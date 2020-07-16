@@ -91,7 +91,7 @@ export default class AdminCommandHandler {
           orgmes.channel.send(out + '```');
           return true;
 
-        case 'stats': 
+        case 'stats':
           Database
             .collection('guilds')
             .find({ })
