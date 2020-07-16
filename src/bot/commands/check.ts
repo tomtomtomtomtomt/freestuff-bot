@@ -31,21 +31,21 @@ export default class CheckCommand extends Command {
     }
 
     if (!g) {
-      Core.databaseManager.addGuild(mes.guild);  
+      Core.databaseManager.addGuild(mes.guild);
       repl(
         Core.text(g, '=cmd_error_fixable_1'),
         Core.text(g, '=cmd_error_fixable_2', { discordInvite: Const.discordInvite })
       );
       return;
     }
-    if (!g.channelInstance) { 
+    if (!g.channelInstance) {
       repl(
         Core.text(g, '=cmd_check_nochannel_1'),
         Core.text(g, '=cmd_check_nochannel_2', { channel: `#${mes.guild.channels.filter(c => c.type == 'text').random().name}` })
       );
       return true;
     }
-    if (!g.channelInstance.guild.me.permissionsIn(g.channelInstance).has('READ_MESSAGES')) {        
+    if (!g.channelInstance.guild.me.permissionsIn(g.channelInstance).has('READ_MESSAGES')) {
       repl(
         Core.text(g, '=cmd_check_nosee_1'),
         Core.text(g, '=cmd_check_nosee_2', { channel: g.channelInstance.toString() })

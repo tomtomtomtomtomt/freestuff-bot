@@ -57,7 +57,7 @@ export default class FreeCommand extends Command {
         for (const game of games) {
           const delta = parseInt(game.info.until + '') * 24 * 60 * 60;
           if (game.published + delta > currentStamp) {
-            if (game.published + delta - currentStamp < 24 * 60 * 60) 
+            if (game.published + delta - currentStamp < 24 * 60 * 60)
               game.info['_today'] = true;
             game.info['_ends'] = new Date((game.published + delta) * 1000);
             out.push(game.info);

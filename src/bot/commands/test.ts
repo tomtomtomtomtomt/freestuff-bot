@@ -48,14 +48,14 @@ export default class TestCommand extends Command {
       );
       return;
     }
-    if (!g.channelInstance) { 
+    if (!g.channelInstance) {
       repl(
         Core.text(g, '=cmd_test_nochannel_1'),
         Core.text(g, '=cmd_test_nochannel_2', { channel: `#${mes.guild.channels.filter(c => c.type == 'text').random().name}` })
       );
       return true;
     }
-    if (!g.channelInstance.guild.me.permissionsIn(g.channelInstance).has('READ_MESSAGES')) {        
+    if (!g.channelInstance.guild.me.permissionsIn(g.channelInstance).has('READ_MESSAGES')) {
       repl(
         Core.text(g, '=cmd_test_nosee_1'),
         Core.text(g, '=cmd_test_nosee_2', { channel: g.channelInstance.toString() })
